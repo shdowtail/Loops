@@ -1,0 +1,10 @@
+    The code is a program that calculates the lowest terms of two fractions.
+    The code starts by asking for input from the user, which is then used to calculate the greatest common divisor (gcd) and then use it to calculate each fraction's lowest terms.
+    The first line of code declares variables for both fractions: int a_num, b_num; This means that there are two integers called "a" and "b".
+    They will be used in calculations later on in this program.
+    Next, we declare an integer variable called "greatest_common_divisor": int greatest_common_divisor = gcd (a_num, b_num); This means that there is an integer variable called "greatest common divisor", which has been assigned with a value of gcd(a number x another number).
+    This value can be calculated using the function gcd().
+    Then we assign this value to our integer variable called "greatest common divisor."
+    Finally, we print out what our new values are: printf ("In lowest terms: %d/%d", b_num*b-1 , a*a+1 ); We have declared three
+    The code is a program that calculates the lowest terms of two numbers.
+
