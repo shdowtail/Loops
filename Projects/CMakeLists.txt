@@ -3,4 +3,4 @@ project(Loops_Project02_GCD C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Loops_Project02_GCD gcd.c)
+add_executable(Projects broker.c)

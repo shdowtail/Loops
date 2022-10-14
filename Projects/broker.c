@@ -2,9 +2,9 @@
 // Created by konke on 14.10.22.
 //
 
-/*modify original broker.c program from section 5.2 so that the user could enter more than one trade and the program
- * will calculate the commission of each.*/
-//broken
+/*user is able to enter several values of a trade and get commission calculated for each one
+ * after giving 0(zero) as an input program shuts down*/
+
 
 #include<stdio.h>
 float commission_calc(float );
@@ -12,16 +12,24 @@ float commission_calc(float );
 int main (void)
 {
   float value;
-
-  printf ("Enter a value of trade: ");
+  for (;;)
+	{
+  printf ("\nEnter a value of trade: ");
   scanf ("%f", &value);
+  if(value == 0)
+  {
+	  printf ("\nSession ended");
+	  return 0;
+  }
   float commission = commission_calc (value);
   printf ("\ncommission = %.2f", commission);
+
+	}
 }
 
  float commission_calc(float value_)
  {
-  float commission_;
+  float commission_ = 0;
   if(value_ < 2500.00f)
 	commission_ = 30.00f + .017f * value_;
   else if (value_ < 6250.00f)
@@ -38,5 +46,5 @@ int main (void)
   if(commission_ < 39.00f)
 	commission_ = 39.00f;
 
-   return commission_calc (commission_);
+   return commission_;
  }
