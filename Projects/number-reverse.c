@@ -18,6 +18,43 @@ double float_from_string_actual = 0.0f;
 double divisor;
 double total;
 
+
+double number_string_into_number_double (const char string[]);
+
+int main (void)
+{
+  printf ("To exit the program type ''stop''");
+  for (;;)
+	{
+	  char number_string[100];
+
+	  printf ("\n\n Enter a number: ");
+	  scanf ("%s", number_string);
+	  //If combined ASCII value of input is 454 which is achieved by adding up letters s t o p program stops
+	  if (number_string[0] + number_string[1] + number_string[2] + number_string[3] == 454)
+		{
+		  return 0;
+		}
+	  double final_value = number_string_into_number_double (number_string);
+	  if (flag2 == true)
+		{
+		  goto breaker;
+		}
+
+	  printf ("\nGiven number backwards is: %g", final_value);
+
+	  /*resetting variables*/
+	breaker:
+	integer_from_string = 0;
+	  total = 0;
+	  float_from_string_int = 0;
+	  float_from_string_actual = 0;
+	  flag = false;
+	  flag2 = false;
+
+	}
+
+}
 double number_string_into_number_double (const char string[])
 {
 
@@ -75,42 +112,6 @@ double number_string_into_number_double (const char string[])
 	  integer_from_string;
 
 }
-
-int main (void)
-{
-  printf ("To exit the program type ''stop''");
-  for (;;)
-	{
-	  char number_string[100];
-
-	  printf ("\n\n Enter a number: ");
-	  scanf ("%s", number_string);
-	  //If combined ASCII value of input is 454 which is achieved by adding up letters s t o p program stops
-	  if (number_string[0] + number_string[1] + number_string[2] + number_string[3] == 454)
-		{
-		  return 0;
-		}
-	  double final_value = number_string_into_number_double (number_string);
-	  if (flag2 == true)
-		{
-		  goto breaker;
-		}
-
-	  printf ("\nGiven number backwards is: %g", final_value);
-
-	  /*resetting variables*/
-	breaker:
-	integer_from_string = 0;
-	  total = 0;
-	  float_from_string_int = 0;
-	  float_from_string_actual = 0;
-	  flag = false;
-	  flag2 = false;
-
-	}
-
-}
-
 
 
 
