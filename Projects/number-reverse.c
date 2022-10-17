@@ -3,6 +3,7 @@
 //
 /*displays a string with undefined amount of digits in reverse*/
 //broken
+#define _USE_MATH_DEFINES
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
