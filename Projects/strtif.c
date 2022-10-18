@@ -2,7 +2,7 @@
 // Created by konket on 09/10/2022.
 //
 
-#include "strtif.h"
+
 #include <stdio.h>
 #include <math.h>
 
