@@ -1,47 +1,56 @@
 //
 // Created by konke on 14.10.22.
 //
-/*displays a number with undefined amount of digits in reverse. Given number can be a float*/
-/*you could say it works but if you for example enter 1452.214 the output is going to be 412.254 due to rounding
- *I'll try figuring that out later */
+/*displays a number with undefined amount of digits in reverse. Given number can have digits after decimal point*
+*initially numbers are entered into and array as a string due to scanf not reporting errors with int
+*Using long data types avoids rounding the final output. Decided to not return the value of float calculation due to rounding
+* and conflicting data types, converted it into a string using snprinf and printed it before returning the function.
+* as a safety net added a stop which activates if the length of number_string is more than[100] because that would cause
+* memory issues*/
 
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
 #include <stdbool.h>
+#define LEN 100
 
-bool flag;
+long long integer_from_string = 0;
+long long float_from_string_int = 0;
+long double float_from_string_actual = 0;
+long double divisor;
+long double total;
 bool flag2;
-int integer_from_string = 0;
-int float_from_string_int = 0;
-double float_from_string_actual = 0.0f;
-double divisor;
-double total;
 
-
-double number_string_into_number_double (const char string[]);
+long long number_string_into_number_actual (const char string[]);
 
 int main (void)
 {
-  printf ("To exit the program type ''stop''");
+
+  printf ("To exit the program type 'stop'");
   for (;;)
 	{
-	  char number_string[100];
+	  char number_string[LEN];
 
-	  printf ("\n\n Enter a number: ");
+	  printf ("\n\nEnter a number: ");
 	  scanf ("%s", number_string);
-	  //If combined ASCII value of input is 454 which is achieved by adding up letters s t o p program stops
-	  if (number_string[0] + number_string[1] + number_string[2] + number_string[3] == 454)
+	  /*If combined ASCII value of input is 454 which is achieved by adding up letters s t o p or user inputs a ZERO "0"
+	   * or the input is longer than 100 digits, program stops to avoid memory issues.*/
+	  if (number_string[0] + number_string[1] + number_string[2] + number_string[3] == 454
+		  || strlen (number_string) > 100)
 		{
 		  return 0;
 		}
-	  double final_value = number_string_into_number_double (number_string);
+
+	  long double int_final_value = number_string_into_number_actual (number_string);
+	  //flag2 is triggered by input that is anything other than numbers 1-9 and "."
+	  //or by the part of the function that calculates a float value
 	  if (flag2 == true)
 		{
-		  goto breaker;
+		  goto breaker;//goto
 		}
 
-	  printf ("\nGiven number backwards is: %g", final_value);
+	  printf ("int Given number backwards is: %Lg", int_final_value);
+
 
 	  /*resetting variables*/
 	breaker:
@@ -49,22 +58,26 @@ int main (void)
 	  total = 0;
 	  float_from_string_int = 0;
 	  float_from_string_actual = 0;
-	  flag = false;
+	  divisor = 0;
+
 	  flag2 = false;
 
 	}
 
 }
-double number_string_into_number_double (const char string[])
+long long number_string_into_number_actual (const char string[])
 {
 
+  char total_value_string[LEN];
   int index = (int) (strlen (string)) - 1;
+  int index_initial = 1;
 
   while (string[index] != '\0')
 	{
+	  ++index_initial;
 	  if (string[index] == 46) //If entered value is float(has a dot)
 		{
-		  flag = true;
+
 		  --index;
 		  int count = 0;
 		  while (string[index] != '\0')
@@ -73,16 +86,17 @@ double number_string_into_number_double (const char string[])
 
 			  index--;
 			  count++;
+			  index_initial++;
 
 			}
-
 		  divisor = pow (10, count);
 		  float_from_string_actual = float_from_string_int / divisor;
-		  double converted_integer_from_string = integer_from_string;
 
-		  total = float_from_string_actual + converted_integer_from_string;
-
-		  break;
+		  total = float_from_string_actual + integer_from_string;
+		  snprintf (total_value_string, index_initial, "%Lf", total);
+		  printf ("Given number backwards is: %s", total_value_string);
+		  flag2 = true;
+		  return 0;
 		}
 
 	  if (string[index] < 48
@@ -99,14 +113,10 @@ double number_string_into_number_double (const char string[])
 		  /*if string[index] == 4 then first iteration would be: 4 * 10 + (49 - 52) initial zero of int_from_str
 		   * * 10 + (ascii value of a given number - the smallest ASCII value of a number aka value of a '0')*/
 		  index--;
+
 		}
 
 	}
-  if (flag == true)
-	{
-	  return total;
-	}
-  else;
 
   return
 	  integer_from_string;
