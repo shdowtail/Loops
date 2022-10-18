@@ -1,7 +1,7 @@
 //
 // Created by konke on 18.10.22.
 //
-/*Program prompts the user to enter a number n, ten prints all even squares betweel 1 and n*/
+/*Program prompts the user to enter a number n, then prints all even squares betweel 1 and n*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -35,13 +35,6 @@ int i = 1;
 		flag_enter = false;
 		flag_exit = false;
 	  }
-
 	}
-
-
-
   return 0;
-
-
-
 }
