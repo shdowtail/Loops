@@ -7,19 +7,19 @@
 #include <stdio.h>
 int main(void)
 {
-  int i;
+
   int n;
   int odd;
-
-
+  int square;
   //printf("This program prints a table of squares.\n");
   //printf("Enter a number of entries in the table: ");
   //scanf("%d", &n);
 
   n = 10;
-  i = 1;
   odd = 3;
-  for (int square = 1; i <= n; ++i )
+  square = 1;
+
+  for (int i = 1; i <= n; ++i )
 	{
 	  printf("%10d%10d\n", i, square);
 	  square += odd;
