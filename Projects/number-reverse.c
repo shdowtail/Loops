@@ -2,9 +2,10 @@
 // Created by konke on 14.10.22.
 //
 /*displays a number with undefined amount of digits in reverse. Given number can have digits after decimal point*
-*initially numbers are entered into and array as a string due to scanf not reporting errors with int
-*Using long data types avoids rounding the final output. Decided to not return the value of float calculation due to rounding
-* and conflicting data types, converted it into a string using snprinf and printed it before returning the function.
+* initially numbers are entered into and array as a string due to scanf not reporting errors with int
+* Using long data types avoids rounding the final output.
+* Decided to not return the value of float calculation due to rounding and conflicting data types
+ * , converted it into a string using snprinf and printed it before returning the function.
 * as a safety net added a stop which activates if the length of number_string is more than[100] because that would cause
 * memory issues*/
 

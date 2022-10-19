@@ -4,7 +4,7 @@ project(Loops)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Projects square3.1.c)
+add_executable(Projects funny-calendar.c)
 target_link_libraries(Projects m)
 
 
