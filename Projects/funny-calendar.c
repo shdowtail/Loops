@@ -29,8 +29,6 @@ int main (void)
 		  printf ("\nimpossible operation, enter a valid value\n");
 
 		}
-	  else break;
-	}
 
   printf ("1=Sun, 7=Sat\n");
   for (;;)

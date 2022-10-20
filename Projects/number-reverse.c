@@ -15,14 +15,14 @@
 #include <stdbool.h>
 #define LEN 100
 
-long long integer_from_string = 0;
-long long float_from_string_int = 0;
+unsigned long long integer_from_string = 0;
+unsigned long long float_from_string_int = 0;
 long double float_from_string_actual = 0;
 long double divisor;
 long double total;
 bool flag2;
 
-long long number_string_into_number_actual (const char string[]);
+unsigned long long number_string_into_number_actual (const char string[]);
 
 int main (void)
 {
@@ -66,7 +66,7 @@ int main (void)
 	}
 
 }
-long long number_string_into_number_actual (const char string[])
+unsigned long long number_string_into_number_actual (const char string[])
 {
 
   char total_value_string[LEN];

@@ -17,42 +17,39 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-int main()
+int main ()
 {
   bool flag_enter = false;
   bool flag_exit = false;
   char string[30];
   char *ptr;
-  long decimal;
+  unsigned long decimal;
 
-  printf("Enter a number: ");
+  printf ("Enter a number: ");
   scanf ("%s", string);
   decimal = strtol (string, &ptr, 10);
 
-int i = 1;
-  while (i * i <= decimal )
+  int i = 1;
+  while (i * i <= decimal)
 	{
-	  if(flag_enter == true)
-	  {
-	  printf("%10d\n",i * i);
-	  flag_exit = true;
+	  if (flag_enter == true)
+		{
+		  printf ("%10d\n", i * i);
+		  flag_exit = true;
 		  goto breaker;
-	  }
+		}
 	  flag_enter = true;
 
-	  breaker: i++; //goto statement goes here
-	  if(flag_exit == true)
-	  {
-		flag_enter = false;
-		flag_exit = false;
-	  }
+	breaker:
+	i++; //goto statement goes here
+	  if (flag_exit == true)
+		{
+		  flag_enter = false;
+		  flag_exit = false;
+		}
 
 	}
 
-
-
   return 0;
-
-
 
 }
