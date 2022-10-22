@@ -5,30 +5,40 @@
 #include "date-string-cut.h"
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
-char dateCut (char *month, char *day, char *year, char date_string[])
+void dateCut(char date_string[])
 {
 
   const char stop[2] = "/";
 
-  char token;
+  char *token;
 
-  token = *strtok (date_string, stop);
-  month = &token;
-  ;
-
+  token = strtok (date_string, stop);
+  str_month = token;
+  printf ("month %s", token);
+  	int count = 1;
   while (token != NULL)
 	{
+	  if (count==1)
+	  {
+	  token = strtok (NULL, stop);
+	  day = token;
 
-	  token = *strtok (NULL, stop);
-	  day = &token;
+	  }
+		count++;
+	if(count == 2)
+	{
+	  token = strtok (NULL, stop);
+	  year = token;
+	}
 
-	  token = *strtok (NULL, stop);
-	  year = &token;
+
+
 
 
 
 	}
 
-  return *month,*day,*year;
+
 }
