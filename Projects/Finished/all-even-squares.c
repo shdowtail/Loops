@@ -4,7 +4,7 @@
 /* Program prompts the user to enter a number n, then prints all even squares between 1 and the input value(n).
  * which is achieved by using two bool flags:|> flag_enter| activates after the first iteration
  * on the second iteration it enters an|> if statement which has flag_enter == true as an activation condition.<|
- * after printining the smallest even square | flag_exit activates | after which a | goto statement |moves the program
+ * after printing the smallest even square | flag_exit activates | after which a | goto statement |moves the program
  * to line 36 where|> int i | increments up by one.
  * |> flag_exit == TRUE| implies that|> an even iteration has just passed| so the next iteration has to ignore the entry
  *   IF statement for printing the value, that is achieved by
