@@ -1,7 +1,7 @@
 //
 // Created by konke on 20.10.22.
 //
-/* Program calculates the remaining balance after every month up to amount of months defined by the user input*/
+/* Program calculates the remaining loan balance after each month up to the amount of months defined by the user*/
 
 #include <stdio.h>
 #include <stdlib.h>
