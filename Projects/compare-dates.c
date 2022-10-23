@@ -3,8 +3,8 @@
 // Created by konke on 21.10.22.
 //
 /*Program prompts the user to enter dates in mm/dd/yy format. 
-After the user enters 0/0/0 it calculates the farthest date and prints it out.
-Pretty much works but instead of for example displaying output as 12/11/07 it comes out as 12/11/7 hence 90/100 progress. */
+ *After the user enters 0/0/0 it calculates the farthest date and prints it out.
+ *Pretty much works but instead of for example displaying output as 12/11/07 it comes out as 12/11/7.*/
 
 #include <string.h>
 #include<stdio.h>
