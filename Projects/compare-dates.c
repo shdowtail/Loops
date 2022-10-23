@@ -1,20 +1,18 @@
 //
 //
 // Created by konke on 21.10.22.
-//i'm tired, on god
+//
 //broken
 
 #include <string.h>
 #include<stdio.h>
-#include <math.h>
-#include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
 int main (void)
 {
   unsigned long day, month, year;
   int input_iteration_count;
-  int saved_iteration;
+
   unsigned long biggest_year;
   char str_date[9];
   char *str_day, *str_month, *str_year;
@@ -25,6 +23,7 @@ int main (void)
   unsigned long days_arr[50];
   unsigned long months_arr[50];
   unsigned long years_arr[50];
+  int i;
 
   char *exit_conditions = "0/0/0";
   for (;;)
@@ -62,7 +61,7 @@ int main (void)
 		  token = strtok (NULL, s);
 		  count++;
 		}
-
+		//converting strings to unsigned long
 	  month = strtoul (str_month, &end_ptr1, 10);
 	  day = strtoul (str_day, &end_ptr2, 10);
 	  year = strtoul (str_year, &end_ptr3, 10);
@@ -72,14 +71,11 @@ int main (void)
 	  years_arr[input_iteration_count] = year;
 	  input_iteration_count++;
 
-	  saved_iteration = input_iteration_count;
-
 	}
-  int i;
-  breaker:
-  i = (int) saved_iteration;
 
-  while (i > 0)
+  breaker://label to a while loop that finds the biggest year
+  i = input_iteration_count - 1;
+  while (i >= 0)
 	{
 	  if (flag == true)
 		{
@@ -90,14 +86,8 @@ int main (void)
 	  if (years_arr[i] > biggest_year)
 		{
 		  biggest_year = years_arr[i];
-		  printf ("\n2. biggest year: %lu", biggest_year);
-		  i--;
-		  printf ("\ni2: %d", i);
 		}
-	  else
-		printf ("\n\nyears_arr[i]last: %lu\n biggest year last: %lu ", years_arr[i], biggest_year);
-	  printf ("\ni3 : %ld", input_iteration_count);
-	  i--;
+		i--;
 	}
 
   return 0;
