@@ -10,31 +10,35 @@
 #include <stdbool.h>
 int main (void)
 {
-  unsigned long day, month, year;
+  long day, month, year;
   int input_iteration_count;
-
-  unsigned long biggest_year;
+  int biggest_year;
   char str_date[9];
   char *str_day, *str_month, *str_year;
   char *end_ptr1, *end_ptr2, *end_ptr3;
   const char s[2] = "/";
-  bool flag;
+  bool first_iteration_flag;
   input_iteration_count = 0;
-  unsigned long days_arr[50];
-  unsigned long months_arr[50];
-  unsigned long years_arr[50];
+  int days_arr[50];
+  int months_arr[50];
+  int years_arr[50];
   int i;
+  bool duplicate_flag;
 
+  int i_duplicate_year;
+  int i_initial_biggest_year;
   char *exit_conditions = "0/0/0";
+
+  printf ("To exit setup type: 0/0/0\n");
   for (;;)
 	{
 
-	  printf ("\nEnter date(mm/dd/yy)");
+	  printf ("Enter date(mm/dd/yy)");
 	  scanf ("%s", str_date);
 
 	  if (*str_date == *exit_conditions)
 		{
-		  flag = true;
+		  first_iteration_flag = true;
 
 		  goto breaker;
 		}
@@ -57,39 +61,71 @@ int main (void)
 			{
 			  str_year = token;
 			}
-		  printf ("\ntoken : %s ", token);
 		  token = strtok (NULL, s);
 		  count++;
 		}
-		//converting strings to unsigned long
-	  month = strtoul (str_month, &end_ptr1, 10);
-	  day = strtoul (str_day, &end_ptr2, 10);
-	  year = strtoul (str_year, &end_ptr3, 10);
+	  //converting strings to long
+	  month = strtol(str_month, &end_ptr1, 10);
+	  day = strtol (str_day, &end_ptr2, 10);
+	  year = strtol (str_year, &end_ptr3, 10);
 
-	  months_arr[input_iteration_count] = month;
-	  days_arr[input_iteration_count] = day;
-	  years_arr[input_iteration_count] = year;
+	  if (month <= 0 || month > 12 || day <= 0 || day > 31 || year < 0 || year > 99)
+		{
+		  printf ("\nImpossible operation");
+		  continue;
+		}
+	  months_arr[input_iteration_count] = (int)month;
+	  days_arr[input_iteration_count] = (int)day;
+	  years_arr[input_iteration_count] =(int)year;
+
 	  input_iteration_count++;
 
 	}
 
-  breaker://label to a while loop that finds the biggest year
+  breaker://label to a while loop that finds the biggest year and it's duplicates.
   i = input_iteration_count - 1;
   while (i >= 0)
 	{
-	  if (flag == true)
+	  if (first_iteration_flag == true)
 		{
+		  i_initial_biggest_year = i;
 		  biggest_year = years_arr[i];
-		  flag = false;
-		  i--;
+		  first_iteration_flag = false;
+		  --i;
 		}
 	  if (years_arr[i] > biggest_year)
 		{
+
+		  i_initial_biggest_year = i;
 		  biggest_year = years_arr[i];
+		  duplicate_flag = false;
 		}
-		i--;
+	  if (biggest_year == years_arr[i])
+		{
+
+
+		  i_duplicate_year = i;
+		  duplicate_flag = true;
+		}
+
+	  i--;
 	}
 
-  return 0;
+//"md" means "month day"
 
+  if (duplicate_flag == true)
+	{
+	  int dup_year_md_value = months_arr[i_duplicate_year] * 30 * days_arr[i_duplicate_year];
+	  int biggest_year_md_value = months_arr[i_initial_biggest_year] * 30 * days_arr[i_initial_biggest_year];
+	  if (dup_year_md_value > biggest_year_md_value)
+		{
+		  printf ("\nFurthest date: %d/%d/%d", months_arr[i_duplicate_year], days_arr[i_duplicate_year], years_arr[i_duplicate_year]);
+		}
+	  else
+		printf ("\nFurthest date: %d/%d/%d", months_arr[i_initial_biggest_year], days_arr[i_initial_biggest_year], years_arr[i_initial_biggest_year]);
+	}
+  else
+	printf ("\nFurthest date: %d/%d/%d", months_arr[i_initial_biggest_year], days_arr[i_initial_biggest_year], years_arr[i_initial_biggest_year]);
+
+  return 0;
 }
