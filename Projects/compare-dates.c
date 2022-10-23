@@ -2,7 +2,8 @@
 //
 // Created by konke on 21.10.22.
 //
-//broken
+/*Program prompts the user to enter dates after user enters 0/0/0 it calculates the farthest date.
+Pretty much works but instead of for example displaying output as 12/11/07 it comes out as 12/11/7. */
 
 #include <string.h>
 #include<stdio.h>
