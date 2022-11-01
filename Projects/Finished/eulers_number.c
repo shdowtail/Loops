@@ -10,8 +10,6 @@ int main(void)
     unsigned long n_index = 1;
     unsigned long factorial_value = 1;
     
-    
-    
     while(n_index != n)
     {
         e_division = 1.0f / (double)factorial_value; // Calculates 1/n! 
