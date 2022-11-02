@@ -8,12 +8,12 @@ int main(void)
 {
     int a_user_input = 0;
     int b_user_input = 0;
-    int holder ;
     printf("\nEnter two integers: ");
     scanf("%d %d", &a_user_input, &b_user_input);
 
     if(b_user_input > a_user_input)
     {
+    i	int holder ;
         holder = a_user_input;
         a_user_input = b_user_input;
         b_user_input = holder;
@@ -24,13 +24,10 @@ int main(void)
 
 int gcd(int a, int b)
 {
-    int quotient = 0;
-    int remainder = 0;
-
     while (b > 0)
     {
-    quotient = a / b;
-    remainder = a - quotient * b;
+    int quotient = a / b;
+    int remainder = a - quotient * b;
     a = b;
     b = remainder;
 

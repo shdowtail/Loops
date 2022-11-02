@@ -72,4 +72,5 @@ int main (void)
 	  index_save++;
 	}
   return 0;
+	}
 }

@@ -4,7 +4,6 @@
 
 int main(void)
 {
-    double e_division = 0;
     double e_add = 0;
     unsigned long n = 11;
     unsigned long n_index = 1;
@@ -12,6 +11,7 @@ int main(void)
     
     while(n_index != n)
     {
+        double e_division; 
         e_division = 1.0f / (double)factorial_value; // Calculates 1/n! 
         factorial_value = n_index * factorial_value; // Calculates (n!)
         e_add += e_division; // Calculates 1 + 1/1! + 1/2! + 1/3! + ... 1/!n
