@@ -26,7 +26,7 @@ int main ()
   unsigned long decimal;
 
   printf ("Enter a number: ");
-  scanf ("%s", string);
+  scanf ("%29s", string);
   decimal = strtol (string, &ptr, 10);
 
   int i = 1;

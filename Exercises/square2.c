@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-int main()
+int main(void)
 {
     int i, n;
     printf("This program prints a table of squares\n");
@@ -10,14 +10,12 @@ int main()
     scanf("%d", &n);
 
 
-    for (int i = 1; i <= n ; ++i)
-    {
+    for ( i = 1; i <= n ; ++i )
+      {
         printf("%10d%10d\n", i , i * i);
-    }
+      }
+      
     return 0;
-
-
-
 }
 
 //

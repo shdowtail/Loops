@@ -53,7 +53,7 @@ int main (void)
   char *ptr1;
   char str_annual_interest_percent[3];
   char *ptr2;
-  char str_monthly_payment[2];
+  char str_monthly_payment[5];
   char *ptr3;
   char str_requested_number_of_months[4];
   char *ptr4;
@@ -61,41 +61,43 @@ int main (void)
   long double amount;
   long double annual_interest_percent;
 
-  long double monthly_payment;
-  long double monthly_interest_payment;
-  long double monthly_non_interest_payment;
-  long double monthly_interest_rate;
 
   unsigned long requested_number_of_months;
   unsigned long nr_months_index;
 
 /*User is prompted to enter needed values then the string input is converted to an according decimal format*/
   printf ("\nEnter the amount of loan: ");
-  scanf ("%s", str_amount);
+  scanf ("%11s", str_amount);
 
   amount = strtold (str_amount, &ptr1);
 
   printf ("Enter the interest rate: ");
-  scanf ("%s", str_annual_interest_percent);
+  scanf ("%2s", str_annual_interest_percent);
+  
   annual_interest_percent = strtold (str_annual_interest_percent, &ptr2);
 
   printf ("Enter the monthly payment: ");
-  scanf ("%s", str_monthly_payment);
+  scanf ("%3s", str_monthly_payment);
+  
+  long double monthly_payment;
   monthly_payment = strtold (str_monthly_payment, &ptr3);
 
   printf ("Enter the number of months: ");
-  scanf ("%s", str_requested_number_of_months);
+  scanf ("%3s", str_requested_number_of_months);
+  
   requested_number_of_months = strtoul (str_requested_number_of_months, &ptr4, 10);
 
   nr_months_index = requested_number_of_months; /*This variable is used to skim through prompted amount of months*/
 
-  long double monthly_calculation;
-  long double remaining_amount;
-  long month_upCount_index = 1;
+  	  long month_upCount_index = 1;
   /* The main calculation of remaining balance*/
   monthly_interest_rate = annual_interest_percent / 100 / 12;
   while (nr_months_index > 0)
 	{
+  	  long double monthly_calculation;
+  	  long double remaining_amount;
+  	  long double monthly_interest_payment;
+  	  long double monthly_non_interest_payment;
 
 	  monthly_interest_payment = amount * monthly_interest_rate;
 

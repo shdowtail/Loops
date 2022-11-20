@@ -9,20 +9,19 @@
 
 int main (void)
 {
-  char str_days_in_month[2];
+  char str_days_in_month[3];
   char *ptr;
-  unsigned long days_in_month;
 
   char str_first_day[9];
   char *ptr1;
   unsigned long the_first_day;
 
-  unsigned long empty_days_beginning;
 
   for (;;)
 	{
+  	  unsigned long days_in_month;
 	  printf ("\nEnter a number of days in a month: ");
-	  scanf ("%s", str_days_in_month);
+	  scanf ("%2s", str_days_in_month);
 	  days_in_month = strtoul (str_days_in_month, &ptr, 10);
 	  if (days_in_month > 31)
 		{
@@ -35,7 +34,7 @@ int main (void)
 	{
 	  printf ("\nEnter the first day of the first week: ");
 
-	  scanf ("%s", str_first_day);
+	  scanf ("%8s", str_first_day);
 	  the_first_day = strtoul (str_first_day, &ptr1, 10);
 	  if (the_first_day > 7)
 		{
@@ -44,7 +43,9 @@ int main (void)
 	  else break;
 	}
 
+  
   empty_days_beginning = the_first_day - 1;
+  
   unsigned long index = empty_days_beginning;
   unsigned long index_save = index + 1; //saving the value of index because in the next loop it's lost
 

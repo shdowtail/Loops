@@ -22,7 +22,6 @@ int strToIntOrFloat(const char  number_string_to_int[100])
 
     while (number_string_to_int[i] != '\0')
     {
-        int count = 0;
 
         if(number_string_to_int[i] == 46) /* If input is float then program goes here after finding the dot */
         {
@@ -30,9 +29,8 @@ int strToIntOrFloat(const char  number_string_to_int[100])
 
             while (number_string_to_int[i] != '\0')
             {
-                sum_f = sum_f * 10 + (number_string_to_int[i] - 48);
-                i++;
-                count++;
+        	  sum_f = sum_f * 10 + (number_string_to_int[i] - 48);
+              i++;
             }
             double sum_f_f = sum_f; /*conversion into double, might be unnecessary*/
             divisor = pow(10, count);
@@ -68,7 +66,7 @@ int main(void) {
         int *ptrint = &int_value;
 
         printf("\nEnter a number: ");
-        scanf("%s", number_string);
+        scanf("%99s", number_string);
         /*function to convert a string into int or float*/
         strToIntOrFloat(number_string);
         /*double because it rounds up the end result*/

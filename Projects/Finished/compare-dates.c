@@ -37,7 +37,7 @@ int main (void)
 	{
 
 	  printf ("Enter date(mm/dd/yy)");
-	  scanf ("%s", str_date);
+	  scanf ("%8s", str_date);
 
 	  //tests if user input is equal to the exit condition which is "0/0/0"
 	  comparison = strcmp (str_date, str_date_exit_test);

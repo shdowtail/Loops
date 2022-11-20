@@ -33,7 +33,7 @@ int main (void)
 	  char number_string[LEN];
 
 	  printf ("\n\nEnter a number: ");
-	  scanf ("%s", number_string);
+	  scanf ("%99s", number_string);
 	  /*If combined ASCII value of input is 454 which is achieved by adding up letters s t o p or user inputs a ZERO "0"
 	   * or the input is longer than 100 digits, program stops to avoid memory issues.*/
 	  if (number_string[0] + number_string[1] + number_string[2] + number_string[3] == 454

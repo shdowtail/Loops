@@ -2,9 +2,9 @@
 
 int main(void)
 {
-    char ASCII;
+    char ASCII[2];
     printf("Enter a character: ");
-    scanf("%s", &ASCII);
+    scanf("%8s", &ASCII);
     printf("%i",ASCII);
     return 0;
 }

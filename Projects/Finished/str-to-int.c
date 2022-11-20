@@ -4,7 +4,7 @@
 
 
 
-int strToInt(char str[])
+int strToInt(const char str[])
 {
     int i = 0, sum = 0 ;
     while (str[i] != '\0') //while an array value 'i' isn't equal to NULL
@@ -28,7 +28,7 @@ int main(void) {
 
     printf("\n Enter number: ");
 
-    scanf("%s", str);
+    scanf("%99s", str);
 
     integer_value = strToInt(str);
 
