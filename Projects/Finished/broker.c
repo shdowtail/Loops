@@ -7,44 +7,44 @@
 
 
 #include<stdio.h>
-float commission_calc(float );
+float commission_calc (float);
 
 int main (void)
 {
   float value;
   for (;;)
-	{
-  printf ("\nEnter a value of trade: ");
-  scanf ("%f", &value);
-  if(value == 0)
-  {
-	  printf ("\nSession ended");
-	  return 0;
-  }
-  float commission = commission_calc (value);
-  printf ("\ncommission = %.2f", commission);
+    {
+      printf ("\nEnter a value of trade: ");
+      scanf ("%f", &value);
+      if (value == 0)
+        {
+          printf ("\nSession ended");
+          return 0;
+        }
+      float commission = commission_calc (value);
+      printf ("\ncommission = %.2f", commission);
 
-	}
+    }
 }
 
- float commission_calc(float value_)
- {
+float commission_calc (float value_)
+{
   float commission_ = 0;
-  if(value_ < 2500.00f)
-	commission_ = 30.00f + .017f * value_;
+  if (value_ < 2500.00f)
+    commission_ = 30.00f + .017f * value_;
   else if (value_ < 6250.00f)
-	commission_ = 56.00f + .0066f * value_;
+    commission_ = 56.00f + .0066f * value_;
   else if (value_ < 20000.00f)
-	commission_ = 76.00f + .0034f * value_;
+    commission_ = 76.00f + .0034f * value_;
   else if (value_ < 50000.00f)
-	commission_ = 100.00f + .0022f * value_;
+    commission_ = 100.00f + .0022f * value_;
   else if (value_ < 500000.00f)
-	commission_ = 155.00f + .0011f * value_;
+    commission_ = 155.00f + .0011f * value_;
   else
-	commission_ = 255.00f + .0009f * value_;
+    commission_ = 255.00f + .0009f * value_;
 
-  if(commission_ < 39.00f)
-	commission_ = 39.00f;
+  if (commission_ < 39.00f)
+    commission_ = 39.00f;
 
-   return commission_;
- }
+  return commission_;
+}

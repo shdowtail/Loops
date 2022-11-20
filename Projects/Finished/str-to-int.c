@@ -1,40 +1,38 @@
 
 #include <stdio.h>
 
-
-
-
-int strToInt(const char str[])
+int strToInt (const char str[])
 {
-    int i = 0, sum = 0 ;
-    while (str[i] != '\0') //while an array value 'i' isn't equal to NULL
+  int i = 0, sum = 0;
+  while (str[i] != '\0') //while an array value 'i' isn't equal to NULL
     {
-        if(str[i] < 48 || str[i] > 57) //ascii 48-57 int 0-9
+      if (str[i] < 48 || str[i] > 57) //ascii 48-57 int 0-9
         {
-            printf("Unable to convert into integer");
+          printf ("Unable to convert into integer");
         }
-        else
+      else
         {
-            sum = sum * 10 + (str[i] - 48);
-            i++;
+          sum = sum * 10 + (str[i] - 48);
+          i++;
         }
 
     }
-    return sum;
+  return sum;
 }
-int main(void) {
-    int integer_value;
-    char str[100];
+int main (void)
+{
+  int integer_value;
+  char str[100];
 
-    printf("\n Enter number: ");
+  printf ("\n Enter number: ");
 
-    scanf("%99s", str);
+  scanf ("%99s", str);
 
-    integer_value = strToInt(str);
+  integer_value = strToInt (str);
 
-    printf("\n Equivalent integer value: %d", integer_value);
+  printf ("\n Equivalent integer value: %d", integer_value);
 
-    return 0;
+  return 0;
 }
 
 //

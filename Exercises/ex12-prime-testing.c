@@ -5,57 +5,55 @@
 
 #include <stdio.h>
 
-int initial(int number)
+int initial (int number)
 {
-    //'n' is the number being checked
-    int d;
+  //'n' is the number being checked
+  int d;
 
-
-    for (d = 2; d < number; d++)
+  for (d = 2; d < number; d++)
     {
-        if (number % d == 0)
+      if (number % d == 0)
         {
-            break;
+          break;
         }
     }
 
-        if (d < number)
-        {
-            printf("%d is divisible by %d\n", number, d);
-        }
-        else
-            printf("%d is prime\n", number);
+  if (d < number)
+    {
+      printf ("%d is divisible by %d\n", number, d);
+    }
+  else
+    printf ("%d is prime\n", number);
 
-
-    return 0;
+  return 0;
 }
 
-int simplified(int number)
+int simplified (int number)
 {
-    int d;
+  int d;
 
-    for (d = 2; d < number * number; ++d)
+  for (d = 2; d < number * number; ++d)
     {
-        if (number % d == 0)
+      if (number % d == 0)
         {
-            break;
+          break;
         }
     }
-    if (d < number)
+  if (d < number)
     {
-        printf("%d is divisible by %d\n", number, d);
+      printf ("%d is divisible by %d\n", number, d);
     }
-    else
-        printf("%d is prime\n", number);
-    return 0;
+  else
+    printf ("%d is prime\n", number);
+  return 0;
 }
 
-int main(void)
+int main (void)
 {
-    int n;
-    printf("Enter number: ");
-    scanf("%d", &n);
-    initial(n);
-    printf("\n\n");
-    simplified(n);
+  int n;
+  printf ("Enter number: ");
+  scanf ("%d", &n);
+  initial (n);
+  printf ("\n\n");
+  simplified (n);
 }

@@ -2,40 +2,40 @@
 // C !
 #include <stdio.h>
 
-int a(void)
+int a (void)
 {
-    int i;
-    for (i = 0; i < 10; i++)
+  int i;
+  for (i = 0; i < 10; i++)
     {
-        printf("a.%d\n", i);
+      printf ("a.%d\n", i);
     }
-    return 0;
+  return 0;
 }
-int b(void)
+int b (void)
 {
-    int i;
-    for (i = 0; i < 10; ++i)
+  int i;
+  for (i = 0; i < 10; ++i)
     {
-        printf("b.%d\n", i);
+      printf ("b.%d\n", i);
     }
-    return 0;
+  return 0;
 }
-int c(void)
+int c (void)
 {
-    int i;
-    for (i = 0; i++ < 10;)
+  int i;
+  for (i = 0; i++ < 10;)
     {
-        printf("c.%d\n", i);
+      printf ("c.%d\n", i);
     }
-    return 0;
+  return 0;
 }
-int main(void)
+int main (void)
 {
-    a();
-    printf("\n\n");
-    b();
-    printf("\n\n");
-    c();
+  a ();
+  printf ("\n\n");
+  b ();
+  printf ("\n\n");
+  c ();
 }
 
 

@@ -3,58 +3,59 @@
 
 #include <stdio.h>
 
-int one_initial(void)
+int one_initial (void)
 {
-    int i = 1;
-    while (i <= 128)
+  int i = 1;
+  while (i <= 128)
     {
-        printf("init.1. %d ", i);
-        i *= 2;
+      printf ("init.1. %d ", i);
+      i *= 2;
     }
-    return 0;
+  return 0;
 }
-int one_for(void)
+int one_for (void)
 {
-    for ( int i = 1; i <= 128 ; i *= 2 )
+  for (int i = 1; i <= 128; i *= 2)
     {
-        printf("for.1. %d ", i);
+      printf ("for.1. %d ", i);
     }
-    return 0;
+  return 0;
 }
 
-int two_initial(void)
+int two_initial (void)
 {
-    int i = 9384;
-    do
+  int i = 9384;
+  do
     {
-        printf("init.2. %d ",i);
-        i /= 10;
-    } while (i > 0);
-    return 0;
-}
-
-int two_for(void)
-{
-    for (int i = 9384; i > 0 ; i /= 10)
-    {
-        printf("for.2. %d ", i);
+      printf ("init.2. %d ", i);
+      i /= 10;
     }
-    return 0;
+  while (i > 0);
+  return 0;
 }
 
-int main(void)
+int two_for (void)
 {
-    one_initial();
-    printf("\n");
-    one_for();
-    printf("\n\n");
+  for (int i = 9384; i > 0; i /= 10)
+    {
+      printf ("for.2. %d ", i);
+    }
+  return 0;
+}
 
-    two_initial();
-    printf("\n");
-    two_for();
-    printf("\n\n");
+int main (void)
+{
+  one_initial ();
+  printf ("\n");
+  one_for ();
+  printf ("\n\n");
 
-    return 0;
+  two_initial ();
+  printf ("\n");
+  two_for ();
+  printf ("\n\n");
+
+  return 0;
 }
 
 //

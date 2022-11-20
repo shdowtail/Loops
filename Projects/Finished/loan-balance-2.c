@@ -20,30 +20,30 @@ void num_suffix (long month_index_up)
   sprintf (num_str, "%ld", month_index_up);
 
   while (num_str[i] != '\0')
-	{
-	  ++i;
-	}
+    {
+      ++i;
+    }
   --i;
   if (num_str[i - 1] == 49 && num_str[i] == 49
-	  || num_str[i - 1] == 49 && num_str[i] == 50
-	  || num_str[i - 1] == 49 && num_str[i] == 51
-	  || num_str[i] >= 52 && num_str[i] <= 57)
-	{
-	  assigned_suffix = "th";
-	}
+      || num_str[i - 1] == 49 && num_str[i] == 50
+      || num_str[i - 1] == 49 && num_str[i] == 51
+      || num_str[i] >= 52 && num_str[i] <= 57)
+    {
+      assigned_suffix = "th";
+    }
   else if (num_str[i] == 49)
-	{
-	  assigned_suffix = "st";
-	}
+    {
+      assigned_suffix = "st";
+    }
 
   else if (num_str[i] == 50)
-	{
-	  assigned_suffix = "nd";
-	}
+    {
+      assigned_suffix = "nd";
+    }
   else if (num_str[i] == 51)
-	{
-	  assigned_suffix = "rd";
-	}
+    {
+      assigned_suffix = "rd";
+    }
 }
 
 int main (void)
@@ -61,7 +61,6 @@ int main (void)
   long double amount;
   long double annual_interest_percent;
 
-
   unsigned long requested_number_of_months;
   unsigned long nr_months_index;
 
@@ -73,48 +72,48 @@ int main (void)
 
   printf ("Enter the interest rate: ");
   scanf ("%2s", str_annual_interest_percent);
-  
+
   annual_interest_percent = strtold (str_annual_interest_percent, &ptr2);
 
   printf ("Enter the monthly payment: ");
   scanf ("%3s", str_monthly_payment);
-  
+
   long double monthly_payment;
   monthly_payment = strtold (str_monthly_payment, &ptr3);
 
   printf ("Enter the number of months: ");
   scanf ("%3s", str_requested_number_of_months);
-  
+
   requested_number_of_months = strtoul (str_requested_number_of_months, &ptr4, 10);
 
   nr_months_index = requested_number_of_months; /*This variable is used to skim through prompted amount of months*/
 
-  	  long month_upCount_index = 1;
+  long month_upCount_index = 1;
   /* The main calculation of remaining balance*/
   monthly_interest_rate = annual_interest_percent / 100 / 12;
   while (nr_months_index > 0)
-	{
-  	  long double monthly_calculation;
-  	  long double remaining_amount;
-  	  long double monthly_interest_payment;
-  	  long double monthly_non_interest_payment;
+    {
+      long double monthly_calculation;
+      long double remaining_amount;
+      long double monthly_interest_payment;
+      long double monthly_non_interest_payment;
 
-	  monthly_interest_payment = amount * monthly_interest_rate;
+      monthly_interest_payment = amount * monthly_interest_rate;
 
-	  monthly_non_interest_payment = monthly_payment - monthly_interest_payment;
+      monthly_non_interest_payment = monthly_payment - monthly_interest_payment;
 
-	  monthly_calculation = monthly_non_interest_payment + monthly_interest_payment;
+      monthly_calculation = monthly_non_interest_payment + monthly_interest_payment;
 
-	  remaining_amount = amount - monthly_calculation;
+      remaining_amount = amount - monthly_calculation;
 
-	  amount -= monthly_calculation;
+      amount -= monthly_calculation;
 
-	  num_suffix (month_upCount_index);
+      num_suffix (month_upCount_index);
 
-	  printf ("\nBalance remaining after %ld%s payment : %.2Lf", month_upCount_index, assigned_suffix, remaining_amount);
+      printf ("\nBalance remaining after %ld%s payment : %.2Lf", month_upCount_index, assigned_suffix, remaining_amount);
 
-	  month_upCount_index++;
-	  nr_months_index--;
-	}
+      month_upCount_index++;
+      nr_months_index--;
+    }
   return 0;
 }

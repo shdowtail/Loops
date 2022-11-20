@@ -3,33 +3,32 @@
 
 #include <stdio.h>
 
-int for_initial(void)
+int for_initial (void)
 {
-    for (int i = 10; i >= 1 ; i /= 2 )
+  for (int i = 10; i >= 1; i /= 2)
     {
-        printf("FOR %d ", i++);
+      printf ("FOR %d ", i++);
     }
-    return 0;
+  return 0;
 }
-int while_modified(void)
+int while_modified (void)
 {
   int i = 10;
-    while (i >= 1)
+  while (i >= 1)
     {
-        printf("WHILE %d ", i++);
-        i /= 2;
+      printf ("WHILE %d ", i++);
+      i /= 2;
 
     }
-    return 0;
+  return 0;
 }
 
-
-int main(void)
+int main (void)
 {
-   // for_initial();
-   while_modified();
+  // for_initial();
+  while_modified ();
 
-    return 0;
+  return 0;
 }
 
 //

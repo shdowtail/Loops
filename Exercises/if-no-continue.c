@@ -1,17 +1,17 @@
 #include <stdio.h>
 
-int main(void)
+int main (void)
 {
-    int n, i, sum;
-    n = 0;
-    sum = 0;
-    while (n < 10)
+  int n, i, sum;
+  n = 0;
+  sum = 0;
+  while (n < 10)
     {
-        scanf("%d", &i);
-        if (i != 0)
+      scanf ("%d", &i);
+      if (i != 0)
         {
-            sum += i;
-            n++;
+          sum += i;
+          n++;
         }
     }
 }
